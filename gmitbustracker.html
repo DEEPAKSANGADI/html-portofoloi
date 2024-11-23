@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMIT BUS TRACKER</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Full Page Layout */
+    html, body {
+      height: 100%; /* Ensures the full viewport height */
+      display: flex;
+      flex-direction: column; /* Stacks header, content, and footer */
+      font-family: sans-serif;
+    }
+
+    /* Header */
+    header {
+      background-color: #5b1f1f;
+      color: #e2b458;
+      padding: 10px;
+      text-align: center;
+      position: fixed; /* Keeps header at the top */
+      top: 0;
+      left: 0;
+      width: 100%; /* Spans the full width */
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow for separation */
+      z-index: 1000;
+    }
+
+    /* Body Content */
+    main {
+      flex: 1; /* Fills available space between header and footer */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      background-image: url('https://www.gmu.ac.in/public/assets/imgs/bustransport.png');
+      background-size: 50%; /* Ensures the image fits properly */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #fbfbfb; /* Fallback background color */
+      padding-top: 60px; /* Leaves space for the fixed header */
+    }
+
+    /* Footer */
+    footer {
+      background-color: #5b1f1f;
+      color: #e2b458;
+      text-align: center;
+      padding: 10px;
+      width: 100%; /* Spans the full width */
+      margin-top: auto; /* Pushes footer to the bottom */
+    }
+
+    /* Question Box Centered */
+    .question-box {
+      background-color: #fff;
+      border: 2px solid #5b1f1f;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    /* Question Text */
+    .question-box p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #5b1f1f;
+    }
+
+    /* Buttons */
+    .question-box button {
+      background-color: #5b1f1f;
+      color: #e2b458;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      top: 100px;
+      left: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px;
+    }
+
+    .question-box button:hover {
+      background-color: #e2b458;
+      color: #5b1f1f;
+    }
+
+    /* Dropdown for Bus Stops */
+    .dropdown {
+      display: none; /* Initially hidden */
+      position: absolute;
+      top: 200px; /* Positions the dropdown just below the header */
+      left: 50%;
+      transform: translateX(-50%); /* Centers it horizontally */
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #5b1f1f;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      text-align: center;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #5b1f1f;
+      border-radius: 4px;
+      background-color: #f4f4f4;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GMIT BUS TRACKER</h1>
+  </header>
+  <main>
+    <!-- Question Box (Centered) -->
+    <div id="questionBox" class="question-box">
+      <p>Are you a student or driver?</p>
+      <button onclick="showBusStops()">Student</button>
+      <button onclick="showDriverOptions()">Driver</button>
+    </div>
+
+    <!-- Bus Stops Dropdown -->
+    <div id="busDropdown" class="dropdown">
+      <label for="busStops">Select a Bus Stop:</label>
+      <select id="busStops">
+        <option value="1">BIET </option>
+        <option value="2">RAILWAY STATION </option>
+        <option value="3">SS HOSPITAL</option>
+        <option value="4">HARIHARA</option>
+        <option value="5">VIDYANAGAR</option>
+      </select>
+    </div>
+
+    <!-- Driver Options Dropdown -->
+    <div id="driverOptions" class="dropdown">
+      <label for="driverTasks">Select a Task:</label>
+      <select id="driverTasks">
+        <option value="1">SHARE Bus Location</option>
+        <option value="2">View Bus Schedule</option>
+        <option value="3">Update Bus Location</option>
+      </select>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 GMIT. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showBusStops() {
+      // Hide the question box
+      var questionBox = document.getElementById('questionBox');
+      questionBox.style.display = 'none';
+
+      // Show the bus stops dropdown
+      var dropdown = document.getElementById('busDropdown');
+      dropdown.style.display = 'block';
+    }
+
+    function showDriverOptions() {
+      // Hide the question box
+      var questionBox = document.getElementById('questionBox');
+      questionBox.style.display = 'none';
+
+      // Show the driver options dropdown
+      var driverOptions = document.getElementById('driverOptions');
+      driverOptions.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
